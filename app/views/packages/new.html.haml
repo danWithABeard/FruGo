@@ -1,0 +1,17 @@
+%h1
+  packages#new
+
+= form_for :package, :url => {:controller => 'packages', :action => 'create'} do |package|
+  = package.label :length
+  = package.text_field :length
+
+  = package.label :width
+  = package.text_field :width
+
+  = package.label :height
+  = package.text_field :height
+
+  = package.label :weight
+  = package.text_field :weight
+
+  = package.submit
