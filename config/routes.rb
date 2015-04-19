@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  root 'packages#index'
+  root 'packages#new'
 
   resources :packages, only: [:new, :show, :create]
 
