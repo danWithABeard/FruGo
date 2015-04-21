@@ -24,7 +24,7 @@ class PackagesController < ApplicationController
     width = dimension_array[1]
     length = dimension_array[2]
     
-    girth = 2 * (length + width)
+    girth = 2 * (height + width)
 
     weight = params[:package][:weight]
     zip_origination = params[:package][:zip_origination]
