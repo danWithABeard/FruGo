@@ -1,5 +1,6 @@
 %h1
   packages#show
 
-%p
-  = build_usps_xml(@package)
+- @package.attributes.each do |attr_name, attr_value|
+  .package__attribute
+    #{attr_name} : #{attr_value}
