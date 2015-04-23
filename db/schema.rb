@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421004835) do
+ActiveRecord::Schema.define(version: 20150423001827) do
 
   create_table "packages", force: :cascade do |t|
     t.integer  "length"
     t.integer  "width"
     t.integer  "height"
-    t.integer  "weight"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "zip_origination"
     t.integer  "zip_destination"
     t.integer  "girth"
+    t.integer  "pounds"
+    t.integer  "ounces"
   end
 
 end
