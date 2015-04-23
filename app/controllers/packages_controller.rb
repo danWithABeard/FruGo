@@ -9,6 +9,10 @@ class PackagesController < ApplicationController
     @package = Package.find(params[:id])
   end
 
+  def edit
+    @package = Package.find(params[:id])
+  end  
+
   def new
     @package = Package.new
   end
