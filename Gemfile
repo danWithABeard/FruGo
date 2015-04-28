@@ -18,8 +18,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'haml-rails', '>= 0.3.4', :group => :development
 
 #
-gem 'nokogiri'
-gem 'rest-client'
+# gem 'nokogiri'
+# gem 'rest-client'
+gem 'active_shipping'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
