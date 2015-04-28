@@ -1,0 +1,79 @@
+= link_to("Edit shipment", edit_shipment_path(@shipment))
+= link_to("Back to Index", shipments_path)
+
+%h3
+  Shipping Information
+%table{ :style => "width:100%; text-align:left;" }
+  %tr
+    %th
+      Name
+    %th
+      Country
+    %th
+      City
+    %th
+      State
+    %th
+      Zip
+  %tr
+    %td
+      = @shipment.name
+    %td
+      = @shipment.country
+    %td
+      = @shipment.city
+    %td
+      = @shipment.state
+    %td
+      = @shipment.postal_code
+  %tr
+    %th
+      Length
+    %th
+      Width
+    %th
+      Height
+    %th
+      Weight
+    %th
+      Cylinder?
+  %tr
+    %td
+      #{@shipment.length} centimeters
+    %td
+      #{@shipment.width} centimeters
+    %td
+      #{@shipment.height} centimeters
+    %td
+      #{@shipment.weight} grams
+    %td
+      = @shipment.cylinder ? "Yes" : "No"
+
+%h3
+  Shipping Options
+%table
+  %tr
+    %th
+      Service Name
+    %th
+      Price
+  - @shipment.ups_rates.each do |rate|
+    %tr
+      %td
+        = rate.service_name
+      %td
+        = number_to_currency(rate.price.to_f / 100)
+
+  - @shipment.fedex_rates.each do |rate|
+    %tr
+      %td
+        = rate.service_name
+      %td
+        = number_to_currency(rate.price.to_f / 100)
+
+  - @shipment.usps_rates.each do |rate|
+    %tr
+      %td
+        = rate.service_name
+      %td
+        = number_to_currency(rate.price.to_f / 100)

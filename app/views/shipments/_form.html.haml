@@ -1,0 +1,51 @@
+.frugo__instructions
+  For length, width, and height, use centimeters.  For weight, use grams.
+
+- if @shipment.errors.any?
+  %ul
+    - @shipment.errors.full_messages.each do |message|
+      %li
+        = message
+
+= form_for :shipment, :url => {:controller => 'shipments', :action => controller_action} do |f| 
+  .package-form__input
+    = f.label :name
+  .package-form__input
+    = f.text_field :name
+  .package-form__input
+    = f.label :country
+  .package-form__input
+    = f.text_field :country
+  .package-form__input
+    = f.label :city
+  .package-form__input
+    = f.text_field :city
+  .package-form__input
+    = f.label :state
+  .package-form__input
+    = f.text_field :state
+  .package-form__input
+    = f.label :postal_code
+  .package-form__input
+    = f.text_field :postal_code
+  .package-form__input
+    = f.label :length
+  .package-form__input
+    = f.text_field :length
+  .package-form__input
+    = f.label :width
+  .package-form__input
+    = f.text_field :width
+  .package-form__input
+    = f.label :height
+  .package-form__input
+    = f.text_field :height
+  .package-form__input
+    = f.label :weight
+  .package-form__input
+    = f.text_field :weight
+  .package-form__input
+    = f.check_box :cylinder
+    = f.label :cylinder
+  .package-form__input
+    = f.submit

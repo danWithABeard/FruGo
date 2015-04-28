@@ -1,0 +1,56 @@
+%h3
+  Shipments
+  = link_to "New Shipment", new_shipment_path
+%table{ :style => " width:100%; text-align:left; " }
+  %thead
+    %th
+      &nbsp;
+    %th
+      &nbsp;
+    %th
+      Name
+    %th
+      Country
+    %th
+      City
+    %th
+      State
+    %th
+      Postal Code
+    %th
+      Length
+    %th
+      Width
+    %th
+      Height
+    %th
+      Weight
+    %th
+      Cylinder?
+  %tbody
+    - @shipments.each do |shipment|
+      %tr
+        %td
+          = link_to "View", shipment
+        %td
+          = link_to "Edit", edit_shipment_path(shipment)
+        %td
+          = shipment.name
+        %td
+          = shipment.country
+        %td
+          = shipment.city
+        %td
+          = shipment.state
+        %td
+          = shipment.postal_code
+        %td
+          = "#{shipment.length} centimeters"
+        %td
+          = "#{shipment.width} centimeters"
+        %td
+          = "#{shipment.height} centimeters"
+        %td
+          = "#{shipment.weight} grams"
+        %td
+          = shipment.cylinder ? "Yes" : "No"
