@@ -1,51 +1,40 @@
-.frugo__instructions
-  For length, width, and height, use centimeters.  For weight, use grams.
+.frugo__new-shipment
+  .frugo__instructions
+    For length, width, and height, use centimeters.  For weight, use grams.
 
-- if @shipment.errors.any?
-  %ul
-    - @shipment.errors.full_messages.each do |message|
-      %li
-        = message
+  - if @shipment.errors.any?
+    %ul
+      - @shipment.errors.full_messages.each do |message|
+        %li
+          = message
 
-= form_for :shipment, :url => {:controller => 'shipments', :action => controller_action} do |f| 
-  .package-form__input
-    = f.label :name
-  .package-form__input
-    = f.text_field :name
-  .package-form__input
-    = f.label :country
-  .package-form__input
-    = f.text_field :country
-  .package-form__input
-    = f.label :city
-  .package-form__input
-    = f.text_field :city
-  .package-form__input
-    = f.label :state
-  .package-form__input
-    = f.text_field :state
-  .package-form__input
-    = f.label :postal_code
-  .package-form__input
-    = f.text_field :postal_code
-  .package-form__input
-    = f.label :length
-  .package-form__input
-    = f.text_field :length
-  .package-form__input
-    = f.label :width
-  .package-form__input
-    = f.text_field :width
-  .package-form__input
-    = f.label :height
-  .package-form__input
-    = f.text_field :height
-  .package-form__input
-    = f.label :weight
-  .package-form__input
-    = f.text_field :weight
-  .package-form__input
-    = f.check_box :cylinder
-    = f.label :cylinder
-  .package-form__input
-    = f.submit
+  = form_for :shipment, :url => {:controller => 'shipments', :action => controller_action} do |f| 
+    %fieldset.package-form__fieldset
+      %legend
+        Destination
+      .package-form__input
+        = f.text_field(:name, :placeholder => "name" ) 
+      .package-form__input
+        = f.text_field( :country, :placeholder => "country" )
+      .package-form__input
+        = f.text_field(:city, :placeholder => "city" )
+      .package-form__input
+        = f.text_field(:state, :placeholder => "state" )
+      .package-form__input
+        = f.text_field(:postal_code, :placeholder => "postal code")
+    %fieldset.package-form__fieldset
+      %legend
+        Package Dimensions
+      .package-form__input
+        = f.text_field(:length, :placeholder => "length" )
+      .package-form__input
+        = f.text_field(:width, :placeholder => "width" )
+      .package-form__input
+        = f.text_field(:height, :placeholder => "height" )
+      .package-form__input
+        = f.text_field(:weight, :placeholder => "weight" )
+      .package-form__input
+        = f.label(:cylinder, "cylinder?")
+        = f.check_box :cylinder
+    .package-form__input
+      = f.submit
