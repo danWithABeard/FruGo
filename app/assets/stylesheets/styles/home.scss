@@ -43,8 +43,14 @@
 
 .frugo__container {
   margin: 0 auto;
+  max-width: 1000px;
+	width:90%;
+}
+
+.frugo__new-shipment {
+	margin: 0 auto;
   max-width: 350px;
-	width:100%;
+  width: 100%;
 }
 
 .package-form__fieldset {
