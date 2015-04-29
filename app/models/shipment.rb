@@ -29,18 +29,18 @@ class Shipment < ActiveRecord::Base
     response.rates.sort_by(&:price)
   end
 
-  def ups_rates
-    ups = UPS.new(login: 'your ups login', password: 'your ups password', key: 'your ups xml key')
-    get_rates_from_shipper(ups)
-  end
+  # def ups_rates
+  #   ups = UPS.new(login: 'your ups login', password: 'your ups password', key: 'your ups xml key')
+  #   get_rates_from_shipper(ups)
+  # end
 
-  def fedex_rates
-    fedex = FedEx.new(login: "your fedex login", password: "your fedex password", key: "your fedex key", account: "your fedex account number")
-    get_rates_from_shipper(fedex)
-  end
+  # def fedex_rates
+  #   fedex = FedEx.new(login: "your fedex login", password: "your fedex password", key: "your fedex key", account: "your fedex account number")
+  #   get_rates_from_shipper(fedex)
+  # end
 
   def usps_rates
-    usps = USPS.new(login: 'your usps account number', password: 'your usps password')
+    usps = USPS.new(login: ENV['usps_account_number'], password: ENV['usps_password'])
     get_rates_from_shipper(usps)
   end
 end
