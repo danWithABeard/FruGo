@@ -2,6 +2,10 @@ class Shipment < ActiveRecord::Base
   include ActiveMerchant::Shipping
 
   validates :name, presence: true
+  validates :origin_country, presence: true
+  validates :origin_city, presence: true
+  validates :origin_state, presence: true
+  validates :origin_postal_code, presence: true
   validates :country, presence: true
   validates :city, presence: true
   validates :state, presence: true
@@ -13,7 +17,7 @@ class Shipment < ActiveRecord::Base
   
 
   def origin
-    Location.new(country: "US", state: "CA", city: "Los Angeles", postal_code: "90001")
+    Location.new(country: origin_country, state: origin_state, city: origin_city, postal_code: origin_postal_code)
   end
 
   def destination
@@ -34,10 +38,10 @@ class Shipment < ActiveRecord::Base
   #   get_rates_from_shipper(ups)
   # end
 
-  # def fedex_rates
-  #   fedex = FedEx.new(login: "your fedex login", password: "your fedex password", key: "your fedex key", account: "your fedex account number")
-  #   get_rates_from_shipper(fedex)
-  # end
+  def fedex_rates
+    fedex = FedEx.new(login: ENV['FEDEX_LOGIN'], password: ENV['FEDEX_PASSWORD'], key: ENV['FEDEX_KEY'], account: ENV['FEDEX_ACCOUNT'], :test => true)
+    get_rates_from_shipper(fedex)
+  end
 
   def usps_rates
     usps = USPS.new(login: ENV['USPS_ACCOUNT_NUMBER'], password: ENV['USPS_PASSWORD'])

@@ -36,6 +36,6 @@ class ShipmentsController < ApplicationController
 private
 
   def shipment_params
-    params.require(:shipment).permit(:name, :country, :city, :state, :postal_code, :length, :width, :height, :weight, :cylinder)
+    params.require(:shipment).permit(:name, :origin_country, :origin_city, :origin_state, :origin_postal_code, :country, :city, :state, :postal_code, :length, :width, :height, :weight, :cylinder)
   end
 end
