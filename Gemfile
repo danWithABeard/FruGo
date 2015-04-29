@@ -20,9 +20,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use haml syntax for template files
-gem 'haml-rails', '>= 0.3.4', :group => :development
+gem 'haml-rails', '>= 0.3.4'
 
-#
 gem 'active_shipping'
 gem 'rails_12factor'
 gem 'puma'
