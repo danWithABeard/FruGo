@@ -38,10 +38,10 @@ class Shipment < ActiveRecord::Base
   #   get_rates_from_shipper(ups)
   # end
 
-  def fedex_rates
-    fedex = FedEx.new(login: ENV['FEDEX_LOGIN'], password: ENV['FEDEX_PASSWORD'], key: ENV['FEDEX_KEY'], account: ENV['FEDEX_ACCOUNT'], :test => true)
-    get_rates_from_shipper(fedex)
-  end
+  # def fedex_rates
+  #   fedex = FedEx.new(login: ENV['FEDEX_LOGIN'], password: ENV['FEDEX_PASSWORD'], key: ENV['FEDEX_KEY'], account: ENV['FEDEX_ACCOUNT'], :test => true)
+  #   get_rates_from_shipper(fedex)
+  # end
 
   def usps_rates
     usps = USPS.new(login: ENV['USPS_ACCOUNT_NUMBER'], password: ENV['USPS_PASSWORD'])
