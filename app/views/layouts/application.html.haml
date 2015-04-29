@@ -1,0 +1,21 @@
+!!! 5
+%html
+  %head
+    %title
+      Frugo
+    = stylesheet_link_tag :application, :media => "all"
+    = javascript_include_tag :application
+    = csrf_meta_tags
+  %body
+    .frugo-border.frugo-border__north
+    .frugo-border.frugo-border__south
+    .frugo-border.frugo-border__east
+    .frugo-border.frugo-border__west
+    .frugo__container
+      .frugo__logo
+        %h1
+          Frugo
+      = yield
+      .frugo__legal
+        %p
+          Frugo is an estimated shipping calculator and currently in development.  Use at your own risk. 
