@@ -40,7 +40,7 @@ class Shipment < ActiveRecord::Base
   # end
 
   def usps_rates
-    usps = USPS.new(login: ENV['usps_account_number'], password: ENV['usps_password'])
+    usps = USPS.new(login: ENV['USPS_ACCOUNT_NUMBER'], password: ENV['USPS_PASSWORD'])
     get_rates_from_shipper(usps)
   end
 end

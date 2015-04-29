@@ -64,12 +64,12 @@
   /     %td
   /       = number_to_currency(rate.price.to_f / 100)
 
-  - @shipment.fedex_rates.each do |rate|
-    %tr
-      %td
-        = rate.service_name
-      %td
-        = number_to_currency(rate.price.to_f / 100)
+  / - @shipment.fedex_rates.each do |rate|
+  /   %tr
+  /     %td
+  /       = rate.service_name
+  /     %td
+  /       = number_to_currency(rate.price.to_f / 100)
 
   - @shipment.usps_rates.each do |rate|
     %tr
