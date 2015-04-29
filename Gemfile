@@ -24,7 +24,7 @@ gem 'haml-rails', '>= 0.3.4', :group => :development
 
 #
 gem 'active_shipping'
-
+gem 'rails_12factor'
 gem 'puma'
 
 # Use jquery as the JavaScript library
